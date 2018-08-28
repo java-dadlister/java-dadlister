@@ -20,13 +20,15 @@ CREATE TABLE dads (
 
 CREATE TABLE bbq (
     id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    username     VARCHAR(240) NOT NULL,
+    dad_id INT UNSIGNED NOT NULL,
+    dad_username     VARCHAR(240) NOT NULL,
     the_meats    VARCHAR(240) NOT NULL,
     time         DATETIME     NOT NULL,
     location     VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id)
+    FOREIGN KEY (dad_id) REFERENCES dads (id),
+    FOREIGN KEY (dad_username) REFERENCES dads (username)
 
 );
 
