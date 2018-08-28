@@ -1,22 +1,19 @@
-USE adlister_db;
+create DATABASE IF NOT EXISTS dad_db;
 
-DROP TABLE IF EXISTS ads;
-DROP TABLE IF EXISTS users;
+USE dad_db;
 
-CREATE TABLE users (
+DROP TABLE IF EXISTS dads;
+
+CREATE TABLE dads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    username VARCHAR(240) NOT NULL,
+    first_name VARCHAR(240) NOT NULL,
+    last_name VARCHAR(240) NOT NULL,
     email VARCHAR(240) NOT NULL,
+    username VARCHAR(240) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    bio VARCHAR(255) NOT NULL,
+    img_url VARCHAR(2083) DEFAULT 'http://via.placeholder.com/300x300',
     PRIMARY KEY (id)
 );
 
-CREATE TABLE ads (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    user_id INT UNSIGNED NOT NULL,
-    title VARCHAR(240) NOT NULL,
-    description TEXT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-        ON DELETE CASCADE
-);
+
