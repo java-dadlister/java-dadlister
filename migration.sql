@@ -3,6 +3,8 @@ create DATABASE IF NOT EXISTS dad_db;
 USE dad_db;
 
 DROP TABLE IF EXISTS dads;
+DROP TABLE IF EXISTS bbq;
+DROP TABLE IF EXISTS new_balance;
 
 CREATE TABLE dads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -16,4 +18,26 @@ CREATE TABLE dads (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE bbq (
+    id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    username     VARCHAR(240) NOT NULL,
+    the_meats    VARCHAR(240) NOT NULL,
+    time         DATETIME     NOT NULL,
+    location     VARCHAR(240) NOT NULL,
+    dadscription VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (dads_id) REFERENCES dads (id)
 
+);
+
+CREATE TABLE new_balance (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    dads_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    username VARCHAR(240) NOT NULL,
+    title VARCHAR(240) NOT NULL,
+    time DATETIME NOT NULL,
+    location VARCHAR(240) NOT NULL,
+    dadscription VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (dads_id) REFERENCES dads(id)
+);
