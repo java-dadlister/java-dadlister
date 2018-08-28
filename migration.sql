@@ -32,7 +32,6 @@ CREATE TABLE bbq (
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dad_id) REFERENCES dads (id),
-    FOREIGN KEY (dad_username) REFERENCES dads (username)
 
 );
 
@@ -46,7 +45,7 @@ CREATE TABLE new_balance (
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads(id),
-    FOREIGN KEY (dad_username) REFERENCES dads (username)
+
 );
 
 CREATE TABLE new_dads (
@@ -57,7 +56,7 @@ CREATE TABLE new_dads (
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id),
-    FOREIGN KEY (dad_username) REFERENCES dads (username)
+
 
 );
 
@@ -69,7 +68,7 @@ CREATE TABLE thingamajig (
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id),
-    FOREIGN KEY (dad_username) REFERENCES dads (username)
+
 
 );
 
@@ -82,7 +81,7 @@ CREATE TABLE exercise (
     locationn VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id),
-    FOREIGN KEY (dad_username) REFERENCES dads (username)
+
 
 );
 
