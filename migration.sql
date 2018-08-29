@@ -17,21 +17,22 @@ CREATE TABLE dads (
     email VARCHAR(240) NOT NULL,
     username VARCHAR(240) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    favorite_joke VARCHAR(255) NOT NULL,
     bio VARCHAR(255) NOT NULL,
     img_url VARCHAR(2083) DEFAULT 'http://via.placeholder.com/300x300',
     PRIMARY KEY (id)
 );
 
-CREATE TABLE bbq (
-    id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE the_meats (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dad_id INT UNSIGNED NOT NULL,
-    dad_username     VARCHAR(240) NOT NULL,
-    the_meats    VARCHAR(240) NOT NULL,
-    time         DATETIME     NOT NULL,
-    location     VARCHAR(240) NOT NULL,
+    dad_username VARCHAR(240) NOT NULL,
+    the_meat VARCHAR(240) NOT NULL,
+    time DATETIME NOT NULL,
+    location VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dad_id) REFERENCES dads (id),
+    FOREIGN KEY (dad_id) REFERENCES dads (id)
 
 );
 
@@ -40,11 +41,9 @@ CREATE TABLE new_balance (
     dads_id INT UNSIGNED NOT NULL,
     dad_username VARCHAR(240) NOT NULL,
     title VARCHAR(240) NOT NULL,
-    time DATETIME NOT NULL,
-    location VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads(id),
+    FOREIGN KEY (dads_id) REFERENCES dads(id)
 
 );
 
@@ -55,7 +54,7 @@ CREATE TABLE new_dads (
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id),
+    FOREIGN KEY (dads_id) REFERENCES dads (id)
 
 
 );
@@ -67,7 +66,7 @@ CREATE TABLE thingamajig (
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id),
+    FOREIGN KEY (dads_id) REFERENCES dads (id)
 
 
 );
@@ -78,9 +77,8 @@ CREATE TABLE exercise (
     dad_username VARCHAR(240) NOT NULL,
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
-    locationn VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id),
+    FOREIGN KEY (dads_id) REFERENCES dads (id)
 
 
 );
