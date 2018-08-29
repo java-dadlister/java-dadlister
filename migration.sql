@@ -3,7 +3,7 @@ create DATABASE IF NOT EXISTS dad_db;
 USE dad_db;
 
 DROP TABLE IF EXISTS dads;
-DROP TABLE IF EXISTS bbq;
+DROP TABLE IF EXISTS the_meats;
 DROP TABLE IF EXISTS new_balance;
 DROP TABLE IF EXISTS new_dads;
 DROP TABLE IF EXISTS thingamajig;
