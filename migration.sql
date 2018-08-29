@@ -26,60 +26,47 @@ CREATE TABLE dads (
 CREATE TABLE the_meats (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dad_id INT UNSIGNED NOT NULL,
-    dad_username VARCHAR(240) NOT NULL,
     the_meat VARCHAR(240) NOT NULL,
     time DATETIME NOT NULL,
     location VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dad_id) REFERENCES dads (id)
-
 );
 
 CREATE TABLE new_balance (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dads_id INT UNSIGNED NOT NULL,
-    dad_username VARCHAR(240) NOT NULL,
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads(id)
-
 );
 
 CREATE TABLE new_dads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dads_id INT UNSIGNED NOT NULL,
-    dad_username VARCHAR(240) NOT NULL,
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id)
-
-
 );
 
 CREATE TABLE thingamajig (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dads_id INT UNSIGNED NOT NULL,
-    dad_username VARCHAR(240) NOT NULL,
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id)
-
-
 );
 
 CREATE TABLE exercise (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dads_id INT UNSIGNED NOT NULL,
-    dad_username VARCHAR(240) NOT NULL,
     title VARCHAR(240) NOT NULL,
     dadscription VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id)
-
-
 );
 
