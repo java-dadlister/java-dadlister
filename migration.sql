@@ -65,6 +65,7 @@ CREATE TABLE exercise (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dads_id INT UNSIGNED NOT NULL,
     title VARCHAR(200) NOT NULL,
+    location VARCHAR(200) NOT NULL,
     dadscription VARCHAR(2500) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (dads_id) REFERENCES dads (id)
