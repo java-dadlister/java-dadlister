@@ -12,6 +12,8 @@ public class Dad {
     private String bio;
     private String img_url;
 
+    public Dad() {}
+
     public Dad(int id, String first_name, String last_name, String email, String username, String password, String favorite_joke, String bio, String img_url) {
         this.id = id;
         this.first_name = first_name;
