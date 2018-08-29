@@ -2,7 +2,7 @@ create DATABASE IF NOT EXISTS dad_db;
 
 USE dad_db;
 
-DROP TABLE IF EXISTS dads;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS the_meats;
 DROP TABLE IF EXISTS new_balance;
 DROP TABLE IF EXISTS new_dads;
@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS thingamajig;
 DROP TABLE IF EXISTS exercise;
 
 
-CREATE TABLE dads (
+CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(200) NOT NULL,
     last_name VARCHAR(200) NOT NULL,
@@ -25,50 +25,49 @@ CREATE TABLE dads (
 
 CREATE TABLE the_meats (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    dads_id INT UNSIGNED NOT NULL,
+    users_id INT UNSIGNED NOT NULL,
     the_meat VARCHAR(200) NOT NULL,
     time VARCHAR(50) NOT NULL,
     location VARCHAR(200) NOT NULL,
     dadscription VARCHAR(2500) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id)
+    FOREIGN KEY (users_id) REFERENCES users (id)
 );
 
 CREATE TABLE new_balance (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    dads_id INT UNSIGNED NOT NULL,
+    users_id INT UNSIGNED NOT NULL,
     title VARCHAR(200) NOT NULL,
     dadscription VARCHAR(2500) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads(id)
+    FOREIGN KEY (users_id) REFERENCES users(id)
 );
 
 CREATE TABLE new_dads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    dads_id INT UNSIGNED NOT NULL,
+    users_id INT UNSIGNED NOT NULL,
     title VARCHAR(200) NOT NULL,
     dadscription VARCHAR(2500) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id)
+    FOREIGN KEY (users_id) REFERENCES users (id)
 );
 
 CREATE TABLE thingamajig (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    dads_id INT UNSIGNED NOT NULL,
+    users_id INT UNSIGNED NOT NULL,
     title VARCHAR(200) NOT NULL,
     dadscription VARCHAR(2500) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id)
+    FOREIGN KEY (users_id) REFERENCES users (id)
 );
 
 CREATE TABLE exercise (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    dads_id INT UNSIGNED NOT NULL,
+    users_id INT UNSIGNED NOT NULL,
     title VARCHAR(200) NOT NULL,
     location VARCHAR(200) NOT NULL,
     dadscription VARCHAR(2500) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (dads_id) REFERENCES dads (id)
+    FOREIGN KEY (users_id) REFERENCES users (id)
 );
-
 
