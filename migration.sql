@@ -11,9 +11,11 @@ CREATE TABLE dads (
     email VARCHAR(240) NOT NULL,
     username VARCHAR(240) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    bio VARCHAR(255) NOT NULL,
+    favorite_joke VARCHAR(2083) NOT NULL,
+    bio VARCHAR(2083) NOT NULL,
     img_url VARCHAR(2083) DEFAULT 'http://via.placeholder.com/300x300',
     PRIMARY KEY (id)
 );
+
 
 
