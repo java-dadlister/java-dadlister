@@ -70,4 +70,3 @@ CREATE TABLE exercise (
     PRIMARY KEY (id),
     FOREIGN KEY (users_id) REFERENCES users (id)
 );
-
