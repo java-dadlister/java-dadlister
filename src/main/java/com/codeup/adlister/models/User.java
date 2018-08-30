@@ -43,7 +43,7 @@ public class User {
         this.bio = bio;
     }
 
-    public User(String email, String username, String password) {
+    public User(int id, String username, String email, String password, String first_name, String last_name) {
         this.email = email;
         this.username = username;
         this.password = password;
