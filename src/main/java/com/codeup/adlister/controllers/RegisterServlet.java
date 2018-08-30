@@ -22,6 +22,8 @@ public class RegisterServlet extends HttpServlet {
         // TODO: create a new user based off of the submitted information
         // TODO: if a user was successfully created, send them to their profile
 
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -30,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
         String bio = request.getParameter("biography");
 
         if(DaoFactory.getUsersDao().findByUsername(username) == null){
-            User user = new User(username, email, password, favorite_joke, bio);
+            User user = new User(firstname, lastname, email, password, favorite_joke, bio);
             DaoFactory.getUsersDao().insert(user);
             try {
                 response.sendRedirect(" /profile");
@@ -46,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
             }
 
             // create and save a new user
-            User user = new User(username, email, password, favorite_joke, bio );
+            User user = new User(firstname, lastname, email, password, favorite_joke, bio );
             DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
         }

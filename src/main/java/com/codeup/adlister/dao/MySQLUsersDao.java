@@ -64,7 +64,20 @@ public class MySQLUsersDao implements Users {
                 rs.getString("email"),
                 rs.getString("password"),
                 rs.getString("first_name"),
-                rs.getString("last_name")
+                rs.getString("last_name"),
+                rs.getString("favorite_joke"),
+                rs.getString("bio"),
+                rs.getString("img_url")
         );
     }
 }
+
+//      this.id = id;
+//              this.first_name = first_name;
+//              this.last_name = last_name;
+//              this.email = email;
+//              this.username = username;
+//              this.password = password;
+//              this.favorite_joke = favorite_joke;
+//              this.bio = bio;
+//              this.img_url = img_url;
