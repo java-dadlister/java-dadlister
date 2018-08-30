@@ -42,7 +42,6 @@ public class MySQLUsersDao implements Users {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
-            stmt.setString(4, user.);
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -57,11 +56,17 @@ public class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
+            rs.getInt("id"),
             rs.getString("email"),
-            rs.getString("password")
+            rs.getString("username"),
+            rs.getString("password"),
+            rs.getString("favorite_joke"),
+            rs.getString("bio")
         );
     }
+
+
+
+
 
 }
