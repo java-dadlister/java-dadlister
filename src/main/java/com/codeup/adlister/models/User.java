@@ -34,6 +34,9 @@ public class User {
         this.bio = bio;
     }
 
+    public User(int id, String username, String email, String password, String first_name, String last_name) {
+    }
+
     public int getId() {
         return id;
     }
