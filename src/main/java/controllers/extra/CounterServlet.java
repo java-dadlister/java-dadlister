@@ -1,4 +1,4 @@
-package com.codeup.adlister.controllers;
+package controllers.extra;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
