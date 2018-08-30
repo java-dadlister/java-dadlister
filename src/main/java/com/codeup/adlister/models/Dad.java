@@ -26,6 +26,14 @@ public class Dad {
         this.img_url = img_url;
     }
 
+    public Dad(String email, String username, String password, String favorite_joke, String bio) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.favorite_joke = favorite_joke;
+        this.bio = bio;
+    }
+
     public int getId() {
         return id;
     }
