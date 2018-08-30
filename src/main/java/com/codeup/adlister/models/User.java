@@ -43,7 +43,7 @@ public class User {
 //        this.bio = bio;
 //    }
 
-    public User(String first_name, String last_name, String email, String password, String favorite_joke, String bio) {
+    public User(String username, String first_name, String last_name, String email, String password, String favorite_joke, String bio) {
     }
 
     public int getId() {
