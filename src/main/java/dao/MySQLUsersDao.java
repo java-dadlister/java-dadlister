@@ -1,5 +1,6 @@
 package dao;
 
+import com.codeup.adlister.dao.Config;
 import models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -8,13 +9,13 @@ import java.sql.*;
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
-    public MySQLUsersDao(Config config) {
+    public MySQLUsersDao() {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                    config.getUrl(),
-                    config.getUser(),
-                    config.getPassword()
+                    Config.url,
+                    Config.user,
+                    Config.password
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -36,15 +37,17 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password, first_name, last_name) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO users(first_name, last_name, email, username, password, favorite_joke, bio) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             System.out.println(user.getUsername());
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
-            stmt.setString(4, user.getFirst_name());
-            stmt.setString(5, user.getLast_name());
+            stmt.setString(1, user.getFirst_name());
+            stmt.setString(2, user.getLast_name());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getUsername());
+            stmt.setString(5, user.getPassword());
+            stmt.setString(6, user.getFavorite_joke());
+            stmt.setString(7, user.getBio());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -59,13 +62,13 @@ public class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
-
+                // these MUST match the order in the table
                 rs.getInt("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("password"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
+                rs.getString("email"),
+                rs.getString("username"),
+                rs.getString("password"),
                 rs.getString("favorite_joke"),
                 rs.getString("bio"),
                 rs.getString("img_url")
