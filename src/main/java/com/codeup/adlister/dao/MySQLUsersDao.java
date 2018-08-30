@@ -58,6 +58,7 @@ public class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
+
                 rs.getInt("id"),
                 rs.getString("username"),
                 rs.getString("email"),
@@ -66,8 +67,4 @@ public class MySQLUsersDao implements Users {
                 rs.getString("last_name")
         );
     }
-
-
-
-
 }
