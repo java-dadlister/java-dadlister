@@ -1,4 +1,4 @@
-package dao;
+package dao.thingamajig;
 
 import models.Ad;
 import com.mysql.cj.jdbc.Driver;
