@@ -1,8 +1,8 @@
 package dao.thingamajig;
 
-import com.codeup.adlister.dao.Config;
 import models.Ad;
 import com.mysql.cj.jdbc.Driver;
+import dao.Config;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
-    public MySQLAdsDao() {
+    public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                Config.url,
-                Config.user,
-                Config.password
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -55,10 +55,10 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("users_id"),
-            rs.getString("title"),
-            rs.getString("dadscription")
+                rs.getLong("id"),
+                rs.getLong("users_id"),
+                rs.getString("title"),
+                rs.getString("dadscription")
         );
     }
 
