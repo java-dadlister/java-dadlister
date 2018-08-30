@@ -1,6 +1,6 @@
 package com.codeup.adlister.models;
 
-public class Dad {
+public class User {
 
     private int id;
     private String first_name;
@@ -12,9 +12,9 @@ public class Dad {
     private String bio;
     private String img_url;
 
-    public Dad() {}
+    public User() {}
 
-    public Dad(int id, String first_name, String last_name, String email, String username, String password, String favorite_joke, String bio, String img_url) {
+    public User(int id, String first_name, String last_name, String email, String username, String password, String favorite_joke, String bio, String img_url) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -26,7 +26,7 @@ public class Dad {
         this.img_url = img_url;
     }
 
-    public Dad(String email, String username, String password, String favorite_joke, String bio) {
+    public User(String email, String username, String password, String favorite_joke, String bio) {
         this.email = email;
         this.username = username;
         this.password = password;
