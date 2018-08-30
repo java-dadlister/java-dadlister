@@ -1,4 +1,4 @@
-package com.codeup.adlister.controllers;
+package controllers.users;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

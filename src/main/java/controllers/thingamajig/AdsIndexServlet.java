@@ -1,6 +1,6 @@
-package com.codeup.adlister.controllers;
+package controllers.thingamajig;
 
-import com.codeup.adlister.dao.DaoFactory;
+import dao.DaoFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
