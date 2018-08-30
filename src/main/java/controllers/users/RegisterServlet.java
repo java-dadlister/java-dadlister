@@ -2,6 +2,7 @@ package controllers.users;
 
 import dao.DaoFactory;
 import models.User;
+import util.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,17 +19,31 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
+        String firstname = request.getParameter("first_name");
+        String lastname = request.getParameter("last_name");
         String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String favorite_joke = request.getParameter("favorite_joke");
         String bio = request.getParameter("bio");
 
+        String hashedPassword = Password.hash(password);
+
         if(DaoFactory.getUsersDao().findByUsername(username) == null){
-            User user = new User(username, firstname, lastname, email, password, favorite_joke, bio);
+            System.out.println(DaoFactory.getUsersDao().findByUsername(username) == null);
+
+            User user = new User(firstname, lastname, email, username, hashedPassword, favorite_joke,bio);
+
+//            user.setFirst_name(firstname);
+//            user.setLast_name(lastname);
+//            user.setEmail(email);
+//            user.setUsername(username);
+//            user.setPassword(password);
+//            user.setFavorite_joke(favorite_joke);
+//            user.setBio(bio);
+
             DaoFactory.getUsersDao().insert(user);
+
             try {
                 response.sendRedirect(" /profile");
             } catch (IOException e) {
@@ -43,9 +58,8 @@ public class RegisterServlet extends HttpServlet {
             }
 
             // create and save a new user
-            User user = new User(username, firstname, lastname, email, password, favorite_joke, bio );
-            DaoFactory.getUsersDao().insert(user);
-            response.sendRedirect("/login");
+//            User user = new User(username, firstname, lastname, email, password, favorite_joke, bio );
+//            response.sendRedirect("/login");
         }
     }
 }

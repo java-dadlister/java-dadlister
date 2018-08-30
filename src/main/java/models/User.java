@@ -1,5 +1,7 @@
 package models;
 
+import util.Password;
+
 public class User {
 
     private int id;
@@ -43,7 +45,14 @@ public class User {
 //        this.bio = bio;
 //    }
 
-    public User(String username, String first_name, String last_name, String email, String password, String favorite_joke, String bio) {
+    public User(String first_name, String last_name, String email, String username, String password, String favorite_joke, String bio) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.favorite_joke = favorite_joke;
+        this.bio = bio;
     }
 
     public int getId() {
@@ -91,7 +100,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = Password.hash(password);
     }
 
     public String getFavorite_joke() {
