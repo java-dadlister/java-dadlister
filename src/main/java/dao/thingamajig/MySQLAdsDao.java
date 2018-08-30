@@ -1,4 +1,4 @@
-package dao;
+package dao.thingamajig;
 
 import com.codeup.adlister.dao.Config;
 import models.Ad;

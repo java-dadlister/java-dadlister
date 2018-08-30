@@ -1,4 +1,4 @@
-package dao;
+package dao.users;
 
 import com.codeup.adlister.dao.Config;
 import models.User;
