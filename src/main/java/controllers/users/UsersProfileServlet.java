@@ -1,9 +1,9 @@
 package controllers.users;
 
 import dao.DaoFactory;
-import dao.dads.Dads;
 import dao.users.Users;
-import models.Dad;
+import dao.users.Users;
+import models.User;
 import models.User;
 import services.Auth;
 
@@ -21,10 +21,10 @@ public class UsersProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Auth auth = new Auth(request);
         Users usersDao = DaoFactory.getUsersDao();
-        Dads fadsDao = DaoFactory.getDadsDao();
+
         long id = auth.getLoggedUser().getId();
         User user = usersDao.find("id", Long.toString(id));
-        List<Dad> dads = fadsDao.getDadsByUser(id);
+        List<User> users = usersDao.getUsersByUser(id);
 
         if (!auth.shouldRedirect()) {
             response.sendRedirect("/login");
@@ -32,7 +32,7 @@ public class UsersProfileServlet extends HttpServlet {
         }
 
         request.setAttribute("user", user);
-        request.setAttribute("dads", dads);
+        request.setAttribute("users", users);
 
         request.getRequestDispatcher("/WEB-INF/user/profile.jsp").forward(request, response);
 

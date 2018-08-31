@@ -1,9 +1,9 @@
 package controllers.users;
 
 import dao.DaoFactory;
-import dao.dads.Dads;
+
 import dao.users.Users;
-import models.Dad;
+
 import models.User;
 import services.Auth;
 
@@ -28,16 +28,16 @@ public class UsersShowServlet extends HttpServlet {
         }
 
         Users usersDao = DaoFactory.getUsersDao();
-        Dads fadsDao = DaoFactory.getFadsDao();
+
 
         String id = request.getParameter("id");
 
         User user = usersDao.find("id", id);
 
-        List<Dad> dads = fadsDao.getDadsByUser(Long.parseLong(id));
+        List<User> users = usersDao.getUsersByUser(Long.parseLong(id));
 
         request.setAttribute("user", user);
-        request.setAttribute("dads", dads);
+        request.setAttribute("users", users);
 
         if (auth.getLoggedUser().getId() == Long.parseLong(id)) {
             System.out.println("Ran");
