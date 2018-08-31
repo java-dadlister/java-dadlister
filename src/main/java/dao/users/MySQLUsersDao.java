@@ -63,17 +63,44 @@ public abstract class MySQLUsersDao implements Users {
     }
 
     @Override
+    public User findByUsername(String username){
+        String ronJones = "SELECT * FROM users WHERE username = ? LIMIT 1";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(ronJones);
+            stmt.setString(1,username);
+            return extractUser(stmt.executeQuery());
+        }catch (SQLException e){
+            throw new RuntimeException("You suck in spanish", e);
+        }
+    }
+
+    private User extractUser(ResultSet robSchnider) throws SQLException {
+        if(! robSchnider.next()){
+            return null;
+        }
+        return new User(
+                robSchnider.getString("first_name"),
+                robSchnider.getString("last_name"),
+                robSchnider.getString("email"),
+                robSchnider.getString("username"),
+                robSchnider.getString("password"),
+                robSchnider.getString("favorite_joke"),
+                robSchnider.getString("bio")
+        );
+    }
+
+    @Override
     public User find(String column, String value) {
 
         //attempt to validate proper column values and keep them variable
-        String columnValue;
+//        String columnValue;
         if (column.equals("first_name") || column.equals("last_name") || column.equals("username") || column.equals("id") || column.equals("email")) {
-            columnValue = column;
+//            columnValue = column;
         } else {
             throw new RuntimeException("Invalid column name!");
         }
 
-        String query = "SELECT * FROM users WHERE " + columnValue + " = ?";
+        String query = "SELECT * FROM users WHERE " + column + " = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, value);

@@ -27,6 +27,8 @@ public class RegisterServlet extends HttpServlet {
 
         Users usersDao = DaoFactory.getUsersDao();
 
+        System.out.println(hashedPassword);
+
         //check if the user email already matches an existing email
         // if the account exists, redirect to login page
         if (usersDao.find("email", email) != null) {
@@ -56,12 +58,12 @@ public class RegisterServlet extends HttpServlet {
 //            } catch (IOException e) {
 //                e.printStackTrace();
 //            }
-
-            // create and save a new user
+//
+//             create and save a new user
 //            User user = new User(username, firstname, lastname, email, password, favorite_joke, bio );
 //            response.sendRedirect("/login");
 
             protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/user/register.jsp").forward(request, response);
             }
         }

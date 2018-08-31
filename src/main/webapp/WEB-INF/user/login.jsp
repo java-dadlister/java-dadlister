@@ -6,6 +6,7 @@
     <%--</jsp:include>--%>
 </head>
 <body>
+    <br>
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div align="col">
@@ -13,6 +14,8 @@
                 <h3 align="center">The online man cave for Rad Dads like you!</h3>
             </div>
         </div>
+        <br>
+        <br>
         <div class="row d-flex justify-content-center">
             <div class="col-5">
                 <form action="/login" method="POST">

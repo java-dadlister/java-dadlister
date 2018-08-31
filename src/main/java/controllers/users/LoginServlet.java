@@ -2,6 +2,7 @@ package controllers.users;
 
 import dao.DaoFactory;
 import dao.users.Users;
+import models.User;
 import services.Auth;
 import util.Password;
 
@@ -15,32 +16,35 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-@WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
+@WebServlet(name = "controllers.users.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        Users usersDao;
-
-        usersDao = DaoFactory.getUsersDao();
-
-//        long verifiedId = usersDao.verifyEmailPass(email, password);
-//
-//        if (verifiedId == 0) {
-//            PrintWriter out = response.getWriter();
-//            out.println("<h1>Invalid Login!</h1>");
-//        } else {
-//            HttpSession session = request.getSession();
-//            session.setAttribute("user", usersDao.find("id", Long.toString(verifiedId)));
-//            response.sendRedirect("/users/show?id=" + verifiedId);
-//        }
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
             response.sendRedirect("/profile");
             return;
         }
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/user/login.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        System.out.println("hello");
+
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        User user = DaoFactory.getUsersDao().findByUsername(username);
+
+        boolean validAttempt = user.getUsername().equals(username) && Password.check(password, user.getPassword());
+
+        if (!validAttempt) {
+            doGet(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            response.sendRedirect("/users/profile");
+        }
+    }
+
+
 }
