@@ -8,11 +8,11 @@
 <body>
     <jsp:include page="/partials/navbar.jsp" />
 
-    <div class="container">
+    <div class="container-fluid">
                 <h1>Welcome, ${sessionScope.user.username}!</h1>
         <div class="row">
-            <div class="col-md-4 px-0 mb-3">
-                <img src="${sessionScope.user.img_url}" alt="Profile Photo" width="99%">
+            <div class="col-md-4 mb-3">
+                <img src="${sessionScope.user.img_url}" alt="Profile Photo" width="100%">
             </div>
             <div class="col-md-8">
                 <h3>Name:</h3>
