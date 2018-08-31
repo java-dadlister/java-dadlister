@@ -1,14 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Register For Our Site!" />
-    </jsp:include>
+    <jsp:include page="../partials/head.jsp" />
+        <%--<jsp:param name="title" value="Register For Our Site!" />--%>
+    <%--</jsp:include>--%>
 </head>
 <body>
-    <jsp:include page="partials/navRegister.jsp" />
+    <jsp:include page="../partials/navRegister.jsp" />
     <div class="container">
-        <h1>Please fill in your information.</h1>
+        <h1>Please fill in your information</h1>
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="first_name">First Name</label>
@@ -50,5 +50,6 @@
         </form>
         <br>
     </div>
+    <jsp:include page="/partials/foot.jsp" />
 </body>
 </html>
