@@ -24,7 +24,7 @@ public class UsersProfileServlet extends HttpServlet {
 
         long id = auth.getLoggedUser().getId();
         User user = usersDao.find("id", Long.toString(id));
-        List<User> users = usersDao.getUsersByUser(id);
+        List<User> users = usersDao.getUsersByUser(id);  
 
         if (!auth.shouldRedirect()) {
             response.sendRedirect("/login");
