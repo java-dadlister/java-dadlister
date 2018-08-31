@@ -25,6 +25,11 @@ public class DaoFactory {
                 public List<User> getUsersByUser(long id) {
                     return null;
                 }
+
+                @Override
+                public long verifyEmailPass(String email, String password) {
+                    return 0;
+                }
             };
         }
         return usersDao;
