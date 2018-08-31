@@ -11,5 +11,7 @@ public interface Users {
     User find(String column, String value);
     boolean delete(long id);
     void save(User user);
+
+    List<User> getUsersByUser(long id);
 //    long verifyEmailPass(String email, String pass);
 }

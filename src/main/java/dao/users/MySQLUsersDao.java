@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MySQLUsersDao implements Users {
+public abstract class MySQLUsersDao implements Users {
 
     private Connection connection;
 
