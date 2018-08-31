@@ -6,7 +6,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="partials/navbar.jsp" />
+    <jsp:include page="partials/navRegister.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
@@ -48,6 +48,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
+        <br>
     </div>
 </body>
 </html>
