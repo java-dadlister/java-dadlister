@@ -7,29 +7,35 @@
 </head>
 <body>
     <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
-    <h1 align="center">Welcome to Dadlister</h1>
+    <div align="center">
+        <h1>Welcome to Dadlister</h1>
+        <h3>The online man cave for Rad Dads like you!</h3>
+    </div>
 
     <div class="container">
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+        <div class="row d-flex justify-content-center"">
+            <div class="col-5">
+                <form action="/login" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" class="form-control" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Log In">
+                </form>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
-            </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+        </div>
                 <br>
             <div align="right">
-            <li><a href="/register">New Dadlister</a></li>
-
-            <div align="center">
-                <h3>The online man cave for Rad Dads like you!</h3>
-            </div>
-
+                <a href="/register">New? Create a Dadlister</a>
             </div>
         </form>
     </div>
+<%--<jsp:include page="/WEB-INF/partials/foot.jsp">--%>
+
+<%--</jsp:include>--%>
 </body>
 </html>
