@@ -34,6 +34,6 @@
             </div>
         </form>
     </div>
-    <jsp:include page="/partials/foot.jsp" />
+    <jsp:include page="/partials/scripts.jsp" />
 </body>
 </html>

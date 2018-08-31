@@ -19,7 +19,7 @@ CREATE TABLE users (
     password VARCHAR(200) NOT NULL,
     favorite_joke VARCHAR(2500) NOT NULL,
     bio VARCHAR(2500) NOT NULL,
-    img_url VARCHAR(150) DEFAULT 'http://via.placeholder.com/300x300',
+    img_url VARCHAR(1000) DEFAULT 'http://via.placeholder.com/300x300',
     PRIMARY KEY (id)
 );
 
