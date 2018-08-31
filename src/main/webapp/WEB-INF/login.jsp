@@ -1,12 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Please Log In" />
-    </jsp:include>
+    <jsp:include page="/WEB-INF/partials/head.jsp" />
+        <%--<jsp:param name="title" value="Please Log In" />--%>
+    <%--</jsp:include>--%>
 </head>
 <body>
-    <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div align="col">
@@ -35,6 +34,6 @@
             </div>
         </form>
     </div>
-<jsp:include page="/WEB-INF/partials/foot.jsp" />
+    <jsp:include page="/WEB-INF/partials/foot.jsp" />
 </body>
 </html>
