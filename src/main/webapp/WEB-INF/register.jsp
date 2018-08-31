@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp" />
+    <jsp:include page="../partials/head.jsp" />
         <%--<jsp:param name="title" value="Register For Our Site!" />--%>
     <%--</jsp:include>--%>
 </head>
 <body>
-    <jsp:include page="partials/navRegister.jsp" />
+    <jsp:include page="../partials/navRegister.jsp" />
     <div class="container">
         <h1>Please fill in your information</h1>
         <form action="/register" method="post">
@@ -50,6 +50,6 @@
         </form>
         <br>
     </div>
-    <jsp:include page="/WEB-INF/partials/foot.jsp" />
+    <jsp:include page="/partials/foot.jsp" />
 </body>
 </html>
