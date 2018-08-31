@@ -1,3 +1,4 @@
+drop DATABASE IF EXISTS dad_db;
 create DATABASE IF NOT EXISTS dad_db;
 
 USE dad_db;

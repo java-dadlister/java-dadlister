@@ -79,13 +79,15 @@ public abstract class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
+                robSchnider.getInt("id"),
                 robSchnider.getString("first_name"),
                 robSchnider.getString("last_name"),
                 robSchnider.getString("email"),
                 robSchnider.getString("username"),
                 robSchnider.getString("password"),
                 robSchnider.getString("favorite_joke"),
-                robSchnider.getString("bio")
+                robSchnider.getString("bio"),
+                robSchnider.getString("img_url")
         );
     }
 
