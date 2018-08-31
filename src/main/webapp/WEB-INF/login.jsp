@@ -7,13 +7,14 @@
 </head>
 <body>
     <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
-    <div align="center">
-        <h1>Welcome to Dadlister</h1>
-        <h3>The online man cave for Rad Dads like you!</h3>
-    </div>
-
     <div class="container">
-        <div class="row d-flex justify-content-center"">
+        <div class="row d-flex justify-content-center">
+            <div align="col">
+                <h1 align="center">Welcome to Dadlister</h1>
+                <h3 align="center">The online man cave for Rad Dads like you!</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
             <div class="col-5">
                 <form action="/login" method="POST">
                     <div class="form-group">
@@ -34,8 +35,6 @@
             </div>
         </form>
     </div>
-<%--<jsp:include page="/WEB-INF/partials/foot.jsp">--%>
-
-<%--</jsp:include>--%>
+<jsp:include page="/WEB-INF/partials/foot.jsp" />
 </body>
 </html>
