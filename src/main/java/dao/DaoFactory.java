@@ -3,6 +3,9 @@ package dao;
 
 import dao.thingamajig.Ads;
 import dao.users.Users;
+import models.User;
+
+import java.util.List;
 
 public class DaoFactory {
     private static Ads dadsDao;
@@ -17,7 +20,12 @@ public class DaoFactory {
 
     public static Users getUsersDao() {
         if (usersDao == null) {
-            usersDao = new dao.users.MySQLUsersDao(new Config());
+            usersDao = new dao.users.MySQLUsersDao(new Config()) {
+                @Override
+                public List<User> getUsersByUser(long id) {
+                    return null;
+                }
+            };
         }
         return usersDao;
     }
