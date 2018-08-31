@@ -6,6 +6,7 @@ public class Thingamajig {
         private int dads_id;
         private String title;
         private String dadscription;
+        private User user;
 
 
         public Thingamajig() {}
@@ -50,6 +51,13 @@ public class Thingamajig {
             this.dadscription = dadscription;
         }
 
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
 
     }
 
