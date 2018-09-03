@@ -46,7 +46,7 @@
                 <label for="image">Image</label>
                 <input id="image" name="image" class="form-control" type="text">
             </div>
-            <input type="submit" class="btn btn-primary btn-block">
+            <input type="submit" class="btn btn-info btn-block">
         </form>
         <br>
     </div>
