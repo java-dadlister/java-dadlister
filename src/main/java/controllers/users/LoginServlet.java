@@ -37,14 +37,21 @@ public class LoginServlet extends HttpServlet {
 
         boolean validAttempt = user.getUsername().equals(username) && Password.check(password, user.getPassword());
 
-        if (!validAttempt) {
-            doGet(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            response.sendRedirect("/users/profile");
-        }
+        try {
+            String nameCheck = DaoFactory.getUsersDao().findByUsername(username).getUsername();
+            if (nameCheck != null) {
+                String message = "That Username is not available. Please select another.";
+                request.setAttribute("message",message);
+                request.getRequestDispatcher("/WEB-INF/user/profile.jsp").forward(request,response);
+                return;
+            }
+
+        } catch (NullPointerException w) {
     }
 
-
+    }
 }
+
+
+
+
